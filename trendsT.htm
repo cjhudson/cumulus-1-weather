@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="<#location> weather data" />
+		<meta name="keywords" content="Cumulus, <#location> weather data, weather, data, weather station" />
+		<meta name="author" content="Chris Hudson">
+		<link rel="icon" href="../../favicon.ico">
+		
+		<title>Latham Weather</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="../bootstrap/css/sticky-footer-navbar.css">
+		<link rel="stylesheet" href="weather.css">
+		
+		<!-- Custom Fonts -->
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+	
+		<!-- SCRIPT FOR THE CHARTS ON THE PAGE -->
+		<script type="text/javascript">
+			function changeImage(im) {
+				document.images["graphs"].src = im + "?" + new Date().getTime();
+			}
+		</script>	
+	</head>
+
+	<body>
+		<nav id="top" class="navbar navbar-weather navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" style="color: #E8E8E8; font-size: 22px;" href="http://weather.hudsondarling.net/index.htm">Latham Weather</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="http://weather.hudsondarling.net/index.htm"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Historical<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="http://weather.hudsondarling.net/today.htm">Today</a></li>
+								<li><a href="http://weather.hudsondarling.net/yesterday.htm">Yesterday</a></li>
+								<li><a href="http://weather.hudsondarling.net/thismonth.htm">This Month</a></li>
+								<li><a href="http://weather.hudsondarling.net/thisyear.htm">This Year</a></li>
+							</ul>
+						</li>	
+						<li class="dropdown active">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Graphics<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="http://weather.hudsondarling.net/gauges.htm">Gauges</a></li>
+								<li><a href="http://weather.hudsondarling.net/trends.htm">Trends</a></li>
+							</ul>
+						</li>	
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Records<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="http://weather.hudsondarling.net/monthlyrecord.htm">Monthly</a></li>
+								<li><a href="http://weather.hudsondarling.net/record.htm">Alltime</a></li>
+							</ul>
+						</li>	
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="http://weather.hudsondarling.net/trendscaro.htm">Trends [Carousel]</a></li>
+								<li><a href="http://weather.hudsondarling.net/gauges-ss.htm">Gauges [Stainless Steel]</a></li>
+							</ul>
+						</li>	
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Sites <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="http://bom.gov.au/act">BOM ACT Site</a></li>
+								<li><a href="http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=I90580966">Historical</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="http://weather.hudsondarling.net/about.htm"><span class="glyphicon glyphicon-info-sign"></span>  About</a></li>
+					</ul>
+				</div> <!--/.nav-collapse -->
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="weatherquote"></div>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<h4>Graphical trends as at <#time>.</h4>
+					<p>These graphs present the temperature, pressure, rainfall, and wind speed trends for the last <#graphperiod> hours. The thumbnail graphs are sampled every ten minutes. The large graphs are sampled every minute. </p>
+				</div>			
+			</div>	
+			<table class="table table-bordered table-condensed table-hover">
+				<tr class="info">
+					<th colspan="5">Click on a thumbnail to display the corresponding larger graph in this panel.</th>
+				</tr>
+				<tr>
+					<td colspan="5" style="align-self:center;" ><img src="images/temp.png" id="graphs" title="Weather Graphs" alt="Weather Graphs"/></td>
+				</tr>
+				<tr>
+					<td><a onclick='changeImage("images/wind.png")'><img src="images/windsm.png" alt="Wind Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/temp.png")'><img src="images/tempsm.png" alt="Temperature Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/intemp.png")'><img src="images/intempsm.png" alt="Inside Temperature Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/press.png")'><img src="images/presssm.png" alt="Pressure Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/rain.png")'><img src="images/rainsm.png" alt="Rain Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+				</tr>
+				<tr>
+					<td><a onclick='changeImage("images/windd.png")'><img src="images/winddsm.png" alt="Wind Direction Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/tempm.png")'><img src="images/tempmsm.png" alt="Temp Min/Max Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/hum.png")'><img src="images/humsm.png" alt="Humidity Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/raint.png")'><img src="images/raintsm.png" alt="Today's Rainfall Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+					<td><a onclick='changeImage("images/raind.png")'><img src="images/raindsm.png" alt="Daily Rain Graph Thumbnail" width="150" height="100" style="border:0" /></a></td>
+				</tr>
+			</table>
+			<div class="row">
+				<h6 class="text-right">Latitude <#latitude>  Longitude <#longitude>  Elevation <#altitude></h6>
+				<h6 class="text-right">Page updated <#update>.</h6>
+				<h6 class="text-right">Powered by <a href="http://sandaysoft.com/products/cumulus" target="_blank">Cumulus</a> v<#version> (<#build>)</h6>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<p class="text-muted">&copy; HudsonDarling.net 2015</p>
+			</div>
+		</footer>
+		<!-- Bootstrap core JavaScript-->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js"></script>	
+
+		<!-- Custom JavaScript-->
+		<script src="weatherquotes.js"></script>
+		<script>showquote();</script>
+		
+	</body>
+</html>

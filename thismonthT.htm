@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="<#location> weather data" />
+	<meta name="keywords" content="Cumulus, <#location> weather data, weather, data, weather station" />
+	<meta name="author" content="Chris Hudson">
+	<link rel="icon" href="../../favicon.ico">
+	
+	<title>Latham Weather</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../bootstrap/css/sticky-footer-navbar.css">
+	<link rel="stylesheet" href="weather.css">
+	
+	<!-- Custom Fonts -->
+	<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+</head>
+
+<body>
+	<nav id="top" class="navbar navbar-weather navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="color: #E8E8E8; font-size: 22px;" href="http://weather.hudsondarling.net/index.htm">Latham Weather</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="http://weather.hudsondarling.net/index.htm"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Historical<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/today.htm">Today</a></li>
+							<li><a href="http://weather.hudsondarling.net/yesterday.htm">Yesterday</a></li>
+							<li><a href="http://weather.hudsondarling.net/thismonth.htm">This Month</a></li>
+							<li><a href="http://weather.hudsondarling.net/thisyear.htm">This Year</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Graphics<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/gauges.htm">Gauges</a></li>
+							<li><a href="http://weather.hudsondarling.net/trends.htm">Trends</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Records<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/monthlyrecord.htm">Monthly</a></li>
+							<li><a href="http://weather.hudsondarling.net/record.htm">Alltime</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/trendscaro.htm">Trends [Carousel]</a></li>
+							<li><a href="http://weather.hudsondarling.net/gauges-ss.htm">Gauges [Stainless Steel]</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Sites <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://bom.gov.au/act">BOM ACT Site</a></li>
+							<li><a href="http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=I90580966">Historical</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://weather.hudsondarling.net/about.htm"><span class="glyphicon glyphicon-info-sign"></span>  About</a></li>
+				</ul>
+			</div> <!--/.nav-collapse -->
+		</div>
+    </nav>
+	<div class="container">
+		<div class="row">
+				<div class="col-sm-12">
+					<div id="weatherquote"></div>
+				</div>				
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h4>This month's highs and lows	<small>This page shows a summary of the data for the current month <#rollovertime> local time. </small></h4>
+			</div>			
+		</div>
+		<table  class="table table-bordered table-condensed table-hover">
+			<tr class="info">
+				<td colspan="3">Temperature and Humidity</td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Temperature</td>
+				<td><#MonthTempH>&nbsp;<#tempunit></td>
+				<td><#MonthTempHT>&nbsp;on&nbsp;<#MonthTempHD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Temperature </td>
+				<td><#MonthTempL>&nbsp;<#tempunit></td>
+				<td><#MonthTempLT>&nbsp;on&nbsp;<#MonthTempLD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Dew&nbsp;Point</td>
+				<td><#MonthDewPointH>&nbsp;<#tempunit></td>
+				<td><#MonthDewPointHT>&nbsp;on&nbsp;<#MonthDewPointHD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Dew&nbsp;Point </td>
+				<td><#MonthDewPointL>&nbsp;<#tempunit></td>
+				<td><#MonthDewPointLT>&nbsp;on&nbsp;<#MonthDewPointLD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Apparent&nbsp;Temperature</td>
+				<td><#MonthAppTempH>&nbsp;<#tempunit></td>
+				<td><#MonthAppTempHT>&nbsp;on&nbsp;<#MonthAppTempHD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Apparent&nbsp;Temperature </td>
+				<td><#MonthAppTempL>&nbsp;<#tempunit></td>
+				<td><#MonthAppTempLT>&nbsp;on&nbsp;<#MonthAppTempLD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Wind&nbsp;Chill&nbsp;Temperature</td>
+				<td><#MonthWChillL>&nbsp;<#tempunit></td>
+				<td><#MonthWChillLT>&nbsp;on&nbsp;<#MonthWChillLD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Heat&nbsp;Index</td>
+				<td><#MonthHeatIndexH>&nbsp;<#tempunit></td>
+				<td><#MonthHeatIndexHT>&nbsp;on&nbsp;<#MonthHeatIndexHD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Minimum</td>
+				<td><#MonthMinTempH>&nbsp;<#tempunit></td>
+				<td><#MonthMinTempHD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Maximum</td>
+				<td><#MonthMaxTempL>&nbsp;<#tempunit></td>
+				<td><#MonthMaxTempLD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Humidity</td>
+				<td><#MonthHumH>&nbsp;%</td>
+				<td><#MonthHumHT>&nbsp;on&nbsp;<#MonthHumHD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Humidity </td>
+				<td><#MonthHumL>&nbsp;%</td>
+				<td><#MonthHumLT>&nbsp;on&nbsp;<#MonthHumLD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Daily&nbsp;Range</td>
+				<td><#MonthHighDailyTempRange>&nbsp;<#tempunit></td>
+				<td><#MonthHighDailyTempRangeD></td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Daily&nbsp;Range</td>
+				<td><#MonthLowDailyTempRange>&nbsp;<#tempunit></td>
+				<td><#MonthLowDailyTempRangeD></td>
+			</tr>
+			<tr class="info">
+				<td colspan="3">Rainfall</td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Rain&nbsp;Rate</td>
+				<td><#MonthRainRateH>&nbsp;<#rainunit>/hr</td>
+				<td><#MonthRainRateHT>&nbsp;on&nbsp;<#MonthRainRateHD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Hourly&nbsp;Rainfall</td>
+				<td><#MonthHourlyRainH>&nbsp;<#rainunit></td>
+				<td><#MonthHourlyRainHT>&nbsp;on&nbsp;<#MonthHourlyRainHD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Daily&nbsp;Rainfall</td>
+				<td><#MonthDailyRainH>&nbsp;<#rainunit></td>
+				<td><#MonthDailyRainHD></td>
+			</tr>
+			<tr>
+				<td>Longest&nbsp;Dry&nbsp;Period</td>
+				<td><#MonthLongestDryPeriod>&nbsp;days</td>
+				<td>to&nbsp;<#MonthLongestDryPeriodD></td>
+			</tr>
+			<tr>
+				<td>Longest&nbsp;Wet&nbsp;Period</td>
+				<td><#MonthLongestWetPeriod>&nbsp;days</td>
+				<td>to&nbsp;<#MonthLongestWetPeriodD></td>
+			</tr>
+			<tr class="info">
+				<td colspan="3">Wind</td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Wind&nbsp;Gust</td>
+				<td><#MonthGustH>&nbsp;<#windunit></td>
+				<td><#MonthGustHT>&nbsp;on&nbsp;<#MonthGustHD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Wind&nbsp;Speed&nbsp;10-minute&nbsp;Average</td>
+				<td><#MonthWindH>&nbsp;<#windunit></td>
+				<td><#MonthWindHT>&nbsp;on&nbsp;<#MonthWindHD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Daily&nbsp;Wind&nbsp;Run</td>
+				<td><#MonthWindRunH>&nbsp;<#windrununit></td>
+				<td><#MonthWindRunHD></td>
+			</tr>
+			<tr class="info">
+				<td colspan="3">Pressure</td>
+			</tr>
+			<tr>
+				<td>Lowest&nbsp;Pressure&nbsp;(sl) </td>
+				<td><#MonthPressL>&nbsp;<#pressunit></td>
+				<td><#MonthPressLT>&nbsp;on&nbsp;<#MonthPressLD></td>
+			</tr>
+			<tr>
+				<td>Highest&nbsp;Pressure&nbsp;(sl)</td>
+				<td><#MonthPressH>&nbsp;<#pressunit></td>
+				<td><#MonthPressHT>&nbsp;on&nbsp;<#MonthPressHD></td>
+			</tr>  
+		</table>
+		<div class="row">
+				<h6 class="text-right">Latitude <#latitude>  Longitude <#longitude>  Elevation <#altitude></h6>
+				<h6 class="text-right">Page updated <#update>.</h6>
+				<h6 class="text-right">Powered by <a href="http://sandaysoft.com/products/cumulus" target="_blank">Cumulus</a> v<#version> (<#build>)</h6>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">&copy; HudsonDarling.net 2015</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript-->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Custom JavaScript-->
+	<script src="weatherquotes.js"></script>
+	<script>showquote();</script>
+
+</body>
+</html>

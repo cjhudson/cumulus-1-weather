@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="<#location> weather data" />
+		<meta name="keywords" content="Cumulus, <#location> weather data, weather, data, weather station" />
+		<meta name="author" content="Chris Hudson">
+		<link rel="icon" href="../../favicon.ico">
+		
+		<title>Latham Weather</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="../bootstrap/css/sticky-footer-navbar.css">
+		<link rel="stylesheet" href="weather.css">
+		
+		<!-- Custom Fonts -->
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+	</head>
+
+	<body>
+		<nav id="top" class="navbar navbar-weather navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="color: #E8E8E8; font-size: 22px;" href="http://weather.hudsondarling.net/index.htm">Latham Weather</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="http://weather.hudsondarling.net/index.htm"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Historical<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/today.htm">Today</a></li>
+							<li><a href="http://weather.hudsondarling.net/yesterday.htm">Yesterday</a></li>
+							<li><a href="http://weather.hudsondarling.net/thismonth.htm">This Month</a></li>
+							<li><a href="http://weather.hudsondarling.net/thisyear.htm">This Year</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Graphics<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/gauges.htm">Gauges</a></li>
+							<li><a href="http://weather.hudsondarling.net/trends.htm">Trends</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Records<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/monthlyrecord.htm">Monthly</a></li>
+							<li><a href="http://weather.hudsondarling.net/record.htm">Alltime</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/trendscaro.htm">Trends [Carousel]</a></li>
+							<li><a href="http://weather.hudsondarling.net/gauges-ss.htm">Gauges [Stainless Steel]</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Sites <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://bom.gov.au/act">BOM ACT Site</a></li>
+							<li><a href="http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=I90580966">Historical</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="http://weather.hudsondarling.net/about.htm"><span class="glyphicon glyphicon-info-sign"></span>  About</a></li>
+				</ul>
+			</div> <!--/.nav-collapse -->
+		</div>
+    </nav>
+	<div class="container">
+	<div class="row">
+			<div class="col-sm-12">
+				<div id="weatherquote"></div>
+			</div>				
+		</div>
+		<div class="lead">
+			<h4>About Latham Weather</h4>
+			<p><span class="label label-warning">Under construction</span></p>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<img src="../images/who.jpg" alt="Fern frond by ~Aquila~" class="img-rounded" />
+				<p></p>
+				<p></p>
+			</div>
+			<div class="col-md-8">
+				<h5><strong>Summary</strong></h5>
+				<p>This website displays weather information from the suburb of Latham in the Australian Capital Territory.  The weather station in use is an <#stationtype>, and these pages are updated every <#interval> minutes. The meteorological day used at this station ends at <#rollovertime>. Occasional breaks in the data do occur as this all running on an old Windows XP PC which does have a tendency to freeze at times.  Apologies if this causes any issues.</p>
+				<p>The weather graphs are generated automatically by <a href="http://sandaysoft.com/products/cumulus" target="_blank">Cumulus</a> v<#version> (<#build>)</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-hover table-condensed">
+					<tbody>
+						<tr class="info">
+							<th colspan="7">Almanac</th>
+						</tr>
+						<tr>
+							<th>Dawn:</th>
+							<td><#dawn></td>
+							<th>Sunrise:</th>
+							<td><#sunrise></td>
+							<th>Moonrise:</th>
+							<td><#moonrise></td>
+							<td rowspan="4" class="text-center"><img class="img-responsive" src="images/moon.bmp" alt="Moon"/></td>
+						</tr>
+						<tr>
+							<th>Dusk:</th>
+							<td><#dusk></td>
+							<th>Sunset:</th>
+							<td><#sunset></td>
+							<th>Moonset:</th>
+							<td><#moonset></td>
+						</tr>
+						<tr>
+							<th>Daylight:</th>
+							<td><#daylightlength></td>
+							<th>Day length:</th>
+							<td><#daylength></td>
+							<th>Moon Phase:</th>
+							<td><#moonphase></td>
+						</tr>
+						<tr>
+							<th>Latitude:</th>
+							<td><#latitude></td>
+							<th>Longitude:</th>
+							<td><#longitude></td>
+							<th>Elevation:</th>
+							<td><#altitude></td>					
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-md-6">
+				<h5><strong>Credits</strong></h5>
+				<p>The CSS and Javascript framework for the website is based on <a href="http://getbootstrap.com">Twitter Bootstrap</a></p>
+				<p>All images are originals taken by my Flickr alterego <a href="http://www.flickr.com/photos/28469131@N00/">CJHudson</a>.</p>
+				<p>Scripts used on the Gauges page are from Mark Crossley - version <span id="scriptVer"></span></p>
+				<p>The gauges are from Gerrit Grunwald's <a href="http://harmoniccode.blogspot.com" target="_blank">SteelSeries</a> <a href="https://github.com/HanSolo/SteelSeries-Canvas">JavaScript library</a></p>
+				<p>The Wind Rose is from <a href="http://www.rgraph.net/">RGraph</a></p>
+				<p>A cookie is used to store your Units of Measurement and gauge preferences</h6>
+			</div>	
+			<div class="col-md-6">
+				<h5><strong>Work Underway</strong></h5>
+				<p>Work is currently underway to get all the pages converted to Twitter Bootstrap and working correctly. </p>
+				<h5><strong>Future Plans</strong></h5>
+				<p>Have recently bought a Raspberry Pi 2 and have plans to move the weather station software to that using the latest version of Cumulus</p>
+				<h6 class="text-right">Page updated <#update>.</h6>
+			</div>
+		</div>
+		
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">&copy; HudsonDarling.net 2015</p>
+		</div>
+	</footer>
+	
+	<!-- Bootstrap core JavaScript-->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="weatherquotes.js"></script>
+	<script>showquote();</script>
+	
+	<!-- Combined steelseries.js & tween.js -->
+	<script src="scripts/steelseries_tween.min.js"></script>
+
+	<!-- Once you have customised this scripts to your requirements you should minimise and concatenate them into a single file in the same order  as below -->
+	<script src="scripts/language.min.js"></script>
+	<script src="scripts/gauges.js"></script>
+
+	<!--Optional Wind Rose scripts -->
+	<script src="scripts/RGraph.common.core.min.js"></script>
+	<script src="scripts/RGraph.rose.min.js"></script>
+	
+
+</body>
+</html>

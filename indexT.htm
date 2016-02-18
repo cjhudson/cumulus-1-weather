@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="<#location> weather data" />
+	<meta name="keywords" content="Cumulus, <#location> weather data, weather, data, weather station" />
+	<meta name="author" content="Chris Hudson">
+	<link rel="icon" href="../../favicon.ico">
+	
+	<title>Latham Weather</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../bootstrap/css/sticky-footer-navbar.css">
+	<link rel="stylesheet" href="weather.css">
+	
+	<!-- Custom Fonts -->
+	<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen:400">
+</head>
+
+<body>
+	<nav id="top" class="navbar navbar-weather navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="color: #E8E8E8; font-size: 22px;" href="http://weather.hudsondarling.net/index.htm">Latham Weather</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="http://weather.hudsondarling.net/index.htm"><span class="fa fa-home fa-lg"></span>  Home</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Historical<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/today.htm">Today</a></li>
+							<li><a href="http://weather.hudsondarling.net/yesterday.htm">Yesterday</a></li>
+							<li><a href="http://weather.hudsondarling.net/thismonth.htm">This Month</a></li>
+							<li><a href="http://weather.hudsondarling.net/thisyear.htm">This Year</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Graphics<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/gauges.htm">Gauges</a></li>
+							<li><a href="http://weather.hudsondarling.net/trends.htm">Trends</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Records<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/monthlyrecord.htm">Monthly</a></li>
+							<li><a href="http://weather.hudsondarling.net/record.htm">Alltime</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://weather.hudsondarling.net/trendscaro.htm">Trends [Carousel]</a></li>
+							<li><a href="http://weather.hudsondarling.net/gauges-ss.htm">Gauges [Stainless Steel]</a></li>
+						</ul>
+					</li>	
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Sites <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="http://bom.gov.au/act">BOM ACT Site</a></li>
+							<li><a href="http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=I90580966">Historical</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://weather.hudsondarling.net/about.htm"><span class="fa fa-info-circle fa-lg"></span>  About</a></li>
+				</ul>
+			</div> <!--/.nav-collapse -->
+		</div>
+    </nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<h4>&nbsp;</h4>
+				<h4>Current Conditions</h4>
+			</div>
+			<div class="col-sm-4">
+				<div class="col-sm-6">
+					<h4 class="text-info">Forecast:</h4>
+					<h4 id="forecast" class="text-info"><#forecast></h4>
+				</div>
+				<div id="forecasticon" class="col-sm-6">
+					<span class="text-info fa fa-space-shuttle fa-5x"></span>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-info text-centre fade in">
+					<div id="weatherquote"></div>			
+				</div>					
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-bordered table-condensed table-hover">
+				<tr class="info">
+					<th colspan="4">Temperature and Humidity </th>
+				</tr>
+				<tr>
+					<th>Temperature</th>
+					<td><#temp>&nbsp;<#tempunit></td>
+					<th>Dew Point </th>
+					<td><#dew>&nbsp;<#tempunit></td>
+				</tr>
+				<tr>
+					<th>Windchill</th>
+					<td><#wchill>&nbsp;<#tempunit></td>
+					<th>Humidity</th>
+					<td><#hum>%</td>
+				</tr>
+				<tr>
+					<th>Heat Index</th>
+					<td><#heatindex>&nbsp;<#tempunit></td>
+					<th>Apparent Temperature</th>
+					<td><#apptemp>&nbsp;<#tempunit></td>
+				</tr>
+				<!-- Solar data. If you don't have a solar sensor, you may wish to delete everything from here to the next comment -->
+				<tr>
+					<th>Solar Radiation</th>
+					<td><#SolarRad>&nbsp;W/m&sup2;</td>
+					<th>Evapotranspiration Today</th>
+					<td><#ET>&nbsp;<#rainunit></td>
+				</tr>
+				<!-- End of solar data -->
+				<tr class="info">
+					<th colspan="4">Rainfall</th>
+				</tr>
+				<tr>
+					<th>Rainfall&nbsp;Today</th>
+					<td><#rfall>&nbsp;<#rainunit></td>
+					<th>Rainfall&nbsp;Rate</th>
+					<td><#rrate>&nbsp;<#rainunit>/hr</td>
+				</tr>
+				<tr>
+					<th>Rainfall&nbsp;This&nbsp;Month</th>
+					<td><#rmonth>&nbsp;<#rainunit></td>
+					<th>Rainfall&nbsp;This&nbsp;Year</th>
+					<td><#ryear>&nbsp;<#rainunit></td>
+				</tr>
+				<tr>
+					<th>Rainfall&nbsp;Last Hour</th>
+					<td><#rhour>&nbsp;<#rainunit></td>
+					<th>Last rainfall</th>
+					<td><#LastRainTipISO></td>
+				</tr>
+				<tr class="info">
+					<th colspan="4">Wind</th>
+				</tr>
+				<tr>
+					<th>Wind&nbsp;Speed&nbsp;(gust)</th>
+					<td><#wgust>&nbsp;<#windunit></td>
+					<th>Wind&nbsp;Speed&nbsp;(avg)</th>
+					<td><#wspeed>&nbsp;<#windunit></td>
+				</tr>
+				<tr>
+					<th>Wind Bearing</th>
+					<td><#avgbearing>&deg; <#wdir></td>
+					<th>Beaufort&nbsp;<#beaufort></th>
+					<td><#beaudesc></td>
+				</tr>
+				<tr class="info">
+					<th colspan="4">Pressure</th>
+				</tr>
+				<tr>
+					<th>Barometer&nbsp;</th>
+					<td><#press>&nbsp;<#pressunit></td>
+					<th><#presstrend></th>
+					<td><#presstrendval>&nbsp;<#pressunit>/hr</td>
+				</tr>
+			</table>		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<a href="http://cumulussites.net/" target="_blank" class="text-right"><img src="http://cumulussites.net/button.php?u=Aquila" alt="Cumulus Top Weather Sites" width="162" height="55"></a>			
+			</div>
+			<div class="col-sm-6">
+				<h6 class="text-right">Latitude <#latitude>  Longitude <#longitude>  Elevation <#altitude></h6>
+				<h6 class="text-right">Page updated <#update>.</h6>
+				<h6 class="text-right">Powered by <a href="http://sandaysoft.com/products/cumulus" target="_blank">Cumulus</a> v<#version> (<#build>)</h6>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">&copy; HudsonDarling.net 2015</p>
+		</div>
+	</footer>
+	
+	<!-- Bootstrap core JavaScript-->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="weather.js"></script>
+	<script>showquote();showForecastIcon();</script>
+</body>
+</html>
